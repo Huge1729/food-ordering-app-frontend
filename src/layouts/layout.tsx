@@ -4,7 +4,7 @@ import Hero from "@/components/Hero";
 
 
 type Props = {
-  children: React.ReactNode;
+  children: React.ReactNode; // all the comp nested inside the layout
   showHero?: boolean;
 };
 
