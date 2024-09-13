@@ -25,9 +25,9 @@ export const useGetMyUser = () => {
 
     return response.json();
   };
-
+ 
   const {
-    data: currentUser,
+    data: currentUser,  // JSON
     isLoading,
     error,
   } = useQuery("fetchCurrentUser", getMyUserRequest);
@@ -38,17 +38,19 @@ export const useGetMyUser = () => {
 
   return { currentUser, isLoading };
 };
-
+// 1 step
 type CreateUserRequest = {
   auth0Id: string;
   email: string;
 };
 
+// componts that call end point
 export const useCreateMyUser = () => {
   const { getAccessTokenSilently } = useAuth0();
 
   const createMyUserRequest = async (user: CreateUserRequest) => {
     const accessToken = await getAccessTokenSilently();
+    // calling the end point
     const response = await fetch(`${API_BASE_URL}/api/my/user`, {
       method: "POST",
       headers: {
@@ -64,11 +66,12 @@ export const useCreateMyUser = () => {
   };
 
   const {
-    mutateAsync: createUser,
+    mutateAsync: createUser,  // NAME CHAINGE TO createuser
     isLoading,
     isError,
     isSuccess,
   } = useMutation(createMyUserRequest);
+  // USE MUTATION HOOKS COMES FORM REACT-QUERY FOR MODIFYING THE DATA
 
   return {
     createUser,
@@ -113,7 +116,7 @@ export const useUpdateMyUser = () => {
     isSuccess,
     error,
     reset,
-  } = useMutation(updateMyUserRequest);
+  } = useMutation(updateMyUserRequest); // creating the hooks
 
   if (isSuccess) {
     toast.success("User profile updated!");

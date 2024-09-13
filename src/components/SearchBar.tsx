@@ -52,7 +52,7 @@ const SearchBar = ({ onSubmit, onReset, placeHolder, searchQuery }: Props) => {
           form.formState.errors.searchQuery && "border-red-500"
         }`}
       >
-        <Search
+        <Search   // search icon from lucide react
           strokeWidth={2.5}
           size={30}
           className="ml-1 text-orange-500 hidden md:block"

@@ -16,9 +16,10 @@ const Auth0ProviderWithNavigate = ({ children }: Props) => {
   if (!domain || !clientId || !redirectUri || !audience) {
     throw new Error("unable to initialise auth");
   }
-
+// When it get back from auth0 so from here call the end point
   const onRedirectCallback = (appState?: AppState) => {
     navigate(appState?.returnTo || "/auth-callback");
+    // createUser({auth0Id: user.sub , email: user.email});
   };
 
   return (

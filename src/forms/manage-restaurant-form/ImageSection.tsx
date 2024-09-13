@@ -46,7 +46,7 @@ const ImageSection = () => {
                   onChange={(event) =>
                     field.onChange(
                       event.target.files ? event.target.files[0] : null
-                    )
+                    )  // by this we can only select one image
                   }
                 />
               </FormControl>

@@ -19,7 +19,7 @@ export type CartItem = {
 };
 
 const DetailPage = () => {
-  const { restaurantId } = useParams();
+  const { restaurantId } = useParams(); // The useParams hook is used to extract route parameters from the current URL.
   const { restaurant, isLoading } = useGetRestaurant(restaurantId);
   const { createCheckoutSession, isLoading: isCheckoutLoading } =
     useCreateCheckoutSession();
@@ -31,19 +31,24 @@ const DetailPage = () => {
 
   const addToCart = (menuItem: MenuItemType) => {
     setCartItems((prevCartItems) => {
+      // 1. Check if the item is already in the cart
+
       const existingCartItem = prevCartItems.find(
         (cartItem) => cartItem._id === menuItem._id
-      );
+      );// cartitem comes from the prevCartitem and menuItem._id that user click
 
       let updatedCartItems;
-
+ // 2. if item is in cart, update the qunatity 
       if (existingCartItem) {
         updatedCartItems = prevCartItems.map((cartItem) =>
           cartItem._id === menuItem._id
             ? { ...cartItem, quantity: cartItem.quantity + 1 }
             : cartItem
         );
-      } else {
+      } 
+     
+      // 3. if item is not in cart, add it as as new item
+      else {
         updatedCartItems = [
           ...prevCartItems,
           {

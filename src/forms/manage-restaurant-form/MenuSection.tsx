@@ -5,7 +5,8 @@ import MenuItemInput from "./MenuItemInput";
 
 const MenuSection = () => {
   const { control } = useFormContext();
-
+// field is current list of menu items so if it is array
+// appemd to add in field array and remove is to remove
   const { fields, append, remove } = useFieldArray({
     control,
     name: "menuItems",

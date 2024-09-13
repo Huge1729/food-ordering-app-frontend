@@ -9,7 +9,7 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 
 export type SearchState = {
-  searchQuery: string;
+  searchQuery: string; // whatever user typed on search bar
   page: number;
   selectedCuisines: string[];
   sortOption: string;
@@ -25,7 +25,7 @@ const SearchPage = () => {
   });
 
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
-
+// 1 getting the all restraurant based on city 
   const { results, isLoading } = useSearchRestaurants(searchState, city);
 
   const setSortOption = (sortOption: string) => {
@@ -66,7 +66,7 @@ const SearchPage = () => {
       page: 1,
     }));
   };
-
+// edge cases
   if (isLoading) {
     <span>Loading ...</span>;
   }
@@ -101,7 +101,7 @@ const SearchPage = () => {
             onChange={(value) => setSortOption(value)}
           />
         </div>
-
+        {/* This result comes from searching the city in serch bar */}
         {results.data.map((restaurant) => (
           <SearchResultCard restaurant={restaurant} />
         ))}

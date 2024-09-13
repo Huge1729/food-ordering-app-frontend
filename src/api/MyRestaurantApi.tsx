@@ -25,7 +25,8 @@ export const useGetMyRestaurant = () => {
   };
 
   const { data: restaurant, isLoading } = useQuery(
-    "fetchMyRestaurant",
+    "fetchMyRestaurant",//This is the query key, which is a unique identifier for this particular query. 
+    // React Query uses this key to cache the data and determine if the query needs to be refetched.
     getMyRestaurantRequest
   );
 

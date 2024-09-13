@@ -37,11 +37,13 @@ const AppRoutes = () => {
           </Layout>
         }
       />
+
+      {/* This is makingthe protected Routes */}
       <Route element={<ProtectedRoute />}>
         <Route
           path="/order-status"
           element={
-            <Layout>
+            <Layout> 
               <OrderStatusPage />
             </Layout>
           }

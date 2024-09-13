@@ -33,7 +33,7 @@ export const useSearchRestaurants = (
   city?: string
 ) => {
   const createSearchRequest = async (): Promise<RestaurantSearchResponse> => {
-    const params = new URLSearchParams();
+    const params = new URLSearchParams();   // add key value pair that get converted to query into url
     params.set("searchQuery", searchState.searchQuery);
     params.set("page", searchState.page.toString());
     params.set("selectedCuisines", searchState.selectedCuisines.join(","));

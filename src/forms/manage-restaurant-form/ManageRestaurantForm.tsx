@@ -66,6 +66,7 @@ const ManageRestaurantForm = ({ onSave, isLoading, restaurant }: Props) => {
   });
 
   useEffect(() => {
+    // This will help in prepopulate the form
     if (!restaurant) {
       return;
     }
@@ -88,14 +89,16 @@ const ManageRestaurantForm = ({ onSave, isLoading, restaurant }: Props) => {
 
     form.reset(updatedRestaurant);
   }, [form, restaurant]);
-
+// RestFormData is customdata type
   const onSubmit = (formDataJson: RestaurantFormData) => {
     const formData = new FormData();
+    // Form data type used to send the data to api using key value pair
 
     formData.append("restaurantName", formDataJson.restaurantName);
     formData.append("city", formDataJson.city);
     formData.append("country", formDataJson.country);
-
+// 1rs = 100paise
+// 1.5rs = 150paise
     formData.append(
       "deliveryPrice",
       (formDataJson.deliveryPrice * 100).toString()
@@ -136,6 +139,7 @@ const ManageRestaurantForm = ({ onSave, isLoading, restaurant }: Props) => {
         <Separator />
         <ImageSection />
         {isLoading ? <LoadingButton /> : <Button type="submit">Submit</Button>}
+        {/* Loading Button is for spinner and button is simple */}
       </form>
     </Form>
   );

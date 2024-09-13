@@ -10,7 +10,7 @@ import {
   import { useFormContext } from "react-hook-form";
   
   const DetailsSection = () => {
-    const { control } = useFormContext();
+    const { control } = useFormContext();  // pareent component form pass  the property to child componets that why we use context
     return (
       <div className="space-y-2">
         <div>

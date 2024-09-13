@@ -8,6 +8,8 @@ type Props = {
 };
 
 const CuisineCheckbox = ({ cuisine, field }: Props) => {
+  // field.value = [ "pasta", "pizza"]
+  // cuisine = "pizza"
   return (
     <FormItem className="flex flex-row items-center space-x-1 space-y-0 mt-2">
       <FormControl>
@@ -20,7 +22,7 @@ const CuisineCheckbox = ({ cuisine, field }: Props) => {
             } else {
               field.onChange(
                 field.value.filter((value: string) => value !== cuisine)
-              );
+              ); // filter 
             }
           }}
         />

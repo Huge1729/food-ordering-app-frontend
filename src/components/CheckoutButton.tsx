@@ -22,7 +22,7 @@ const CheckoutButton = ({ onCheckout, disabled, isLoading }: Props) => {
   } = useAuth0();
 
   const { pathname } = useLocation();
-
+  // This is the location where used get back to after logged in
   const { currentUser, isLoading: isGetUserLoading } = useGetMyUser();
 
   const onLogin = async () => {

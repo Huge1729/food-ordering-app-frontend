@@ -18,7 +18,8 @@ import {
     const { orders } = useGetMyRestaurantOrders();
   
     const isEditing = !!restaurant;
-  
+    // variable has a truthy value (i.e., it is defined, not null, and not undefined).
+    // If restaurant is falsy (e.g., null, undefined, 0, ""), !!restaurant will return false.
     return (
       <Tabs defaultValue="orders">
         <TabsList>

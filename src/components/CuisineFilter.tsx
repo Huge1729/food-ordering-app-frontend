@@ -7,7 +7,7 @@ import { Button } from "./ui/button";
 type Props = {
   onChange: (cuisines: string[]) => void;
   selectedCuisines: string[];
-  isExpanded: boolean;
+  isExpanded: boolean;   // view more
   onExpandedClick: () => void;
 };
 

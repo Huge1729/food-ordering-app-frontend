@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { z } from "zod";
+import { z } from "zod"; // for adding validation at fronted
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Form,
@@ -16,7 +16,7 @@ import { Button } from "@/components/ui/button";
 import { User } from "@/types";
 import { useEffect } from "react";
 
-const formSchema = z.object({
+const formSchema = z.object({  // defining the schema at fronted
   email: z.string().optional(),
   name: z.string().min(1, "name is required"),
   addressLine1: z.string().min(1, "Address Line 1 is required"),
@@ -42,16 +42,18 @@ const UserProfileForm = ({
   buttonText = "Submit",
 }: Props) => {
   const form = useForm<UserFormData>({
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(formSchema), // handle the things like validation 
     defaultValues: currentUser,
-  });
-
+   });
+// if currentuser or form change 
+// this is populating the form
   useEffect(() => {
     form.reset(currentUser);
   }, [currentUser, form]);
 
   return (
-    <Form {...form}>
+    <Form {...form}> 
+    {/* this is shadcn form and add type of form from above */}
       <form
         onSubmit={form.handleSubmit(onSave)}
         className="space-y-4 bg-gray-50 rounded-lg md:p-10"
@@ -68,7 +70,8 @@ const UserProfileForm = ({
           render={({ field }) => (
             <FormItem>
               <FormLabel>Email</FormLabel>
-              <FormControl>
+              <FormControl> 
+                {/* displaying the err */}
                 <Input {...field} disabled className="bg-white" />
               </FormControl>
             </FormItem>
@@ -131,7 +134,7 @@ const UserProfileForm = ({
           />
         </div>
         {isLoading ? (
-          <LoadingButton />
+          <LoadingButton />  // this is loading button with spin and please wait
         ) : (
           <Button type="submit" className="bg-orange-500">
             {buttonText}
