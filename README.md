@@ -1,30 +1,40 @@
-# React + TypeScript + Vite
+# Food Ordering App Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+The **Food Ordering App Frontend** is a dynamic web application built using React that provides a user-friendly interface for customers to browse restaurants, view menu items, and place orders. The application seamlessly connects to the backend services, enabling a smooth and efficient food ordering experience.
 
-Currently, two official plugins are available:
+## Features
+- **User Registration & Login:** Allow users to create accounts and log in securely.
+- **Restaurant Listings:** Display a list of available restaurants with detailed information.
+- **Menu Browsing:** Users can view and filter menu items from selected restaurants.
+- **Cart Functionality:** Add items to the cart and manage orders before checkout.
+- **Responsive Design:** Fully responsive layout for optimal viewing on all devices.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies Used
+- **Frontend Framework:** React
+- **State Management:** Redux (if applicable)
+- **Styling:** CSS or styled-components
+- **APIs:** Axios for making API calls to the backend
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Prerequisites
+- Node.js
+- npm (Node Package Manager)
 
-- Configure the top-level `parserOptions` property like this:
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Huge1729/food-ordering-app-frontend.git
+   cd food-ordering-app-frontend
+2. Install dependencies
+   ```bash
+   npm install
+### Usage
+Once the application is running, users can:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Register or log in to their accounts.
+- Add or Browse through a list of restaurants.
+- View menu items can apply sorting, searching, filtering and add them to the cart.
+- Proceed to checkout and place orders.
+- Do payment through the Stripe
